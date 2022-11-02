@@ -8,55 +8,202 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 
+#define BASE   0
+#define SYMBOL 1
+#define NUMPAD 2
+#define FKEYS  3
+
+// repeat consumer page keys in addition to hid keys
+&key_repeat {
+    usage-pages = <HID_USAGE_KEY HID_USAGE_CONSUMER>;
+};
+
+&sk {
+    release-after-ms = <500>;
+};
+
+&mt {
+    tapping-term-ms = <200>;
+};
+
+// TODO
+// name, mail macros
+// reset, bootloader combos
+
+// numlock combo
+// the keymap require the os to be set to de_DE
 / {
   // mod_morphs
   behaviors {
-    cu_slash: slash_backslash {
-      compatible = "zmk,behavior-mod-mmorph";
-      label = "SLASH_BACKSLASH";
+    bspc_del: backspace_delete {
+      compatible = "zmk,behavior-mod-morph";
+      label = "BACKSPACE_DELETE";
       #binding-cells = <0>;
-      bindings = <&kp KP_SLASH>, <&kp LC(LA(MINUS))>;
-      mods = <(MOD_LSFT)>;
+      bindings = <&kp BACKSPACE>, <&kp LC(DELETE)>;
+      mods = <(MOD_LSFT|MOD_RSFT)>;
+      keep-mods = <(MOD_RSFT)>;
     };
-    cu_plus: plus_equal {
-      compatible = "zmk,behavior-mod-mmorph";
+    CU_AMP: ampersand {
+      compatible = "zmk,behavior-mod-morph";
+      label = "AMPERSAND";
+      #binding-cells = <0>;
+      bindings = <&kp LS(NUMBER_6)>, <&kp LS(NUMBER_6)>;
+      mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+    CU_COMMA: comma_semicolon {
+      compatible = "zmk,behavior-mod-morph";
+      label = "COMMA_SEMICOLON";
+      #binding-cells = <0>;
+      bindings = <&kp COMMA>, <&kp LS(COMMA)>;
+      mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+    CU_DOT: dot_repeat {
+      compatible = "zmk,behavior-mod-morph";
+      label = "DOT_REPEAT";
+      #binding-cells = <0>;
+      bindings = <&kp DOT>, <&key_repeat>;
+      mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+    CU_EQUAL: equal {
+      compatible = "zmk,behavior-mod-morph";
+      label = "EQUAL";
+      #binding-cells = <0>;
+      bindings = <&kp LS(NUMBER_0)>, <&kp LS(NUMBER_0)>;
+      mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+    CU_EXCLAM: exclamation_mark {
+      compatible = "zmk,behavior-mod-morph";
+      label = "EXCLAMATION MARK";
+      #binding-cells = <0>;
+      bindings = <&kp LS(NUMBER_1)>, <&kp LS(NUMBER_1)>;
+      mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+    CU_HASH: equal {
+      compatible = "zmk,behavior-mod-morph";
+      label = "HASH";
+      #binding-cells = <0>;
+      bindings = <&kp NUHS>, <&kp NUHS>;
+      mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+    CU_LT: lt {
+      compatible = "zmk,behavior-mod-morph";
+      label = "Less THAN";
+      #binding-cells = <0>;
+      bindings = <&kp NUBS>, <&kp NUBS>;
+      mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+    CU_O_BRCK: open_bracket {
+      compatible = "zmk,behavior-mod-morph";
+      label = "OPENING BRACKET";
+      #binding-cells = <0>;
+      bindings = <&kp LC(LA(NUMBER_8))>, <&kp LC(LA(NUMBER_8))>;
+      mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+    CU_O_CURL: open_curly {
+      compatible = "zmk,behavior-mod-morph";
+      label = "OPENING CURLY BRACES";
+      #binding-cells = <0>;
+      bindings = <&kp LC(LA(NUMBER_7))>, <&kp LC(LA(NUMBER_6))>;
+      mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+    CU_O_PAREN: open_parenthesis {
+      compatible = "zmk,behavior-mod-morph";
+      label = "OPENING PARENTHESIS";
+      #binding-cells = <0>;
+      bindings = <&kp LS(NUMBER_8)>, <&kp LS(NUMBER_8)>;
+      mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+    CU_PIPE: pipe {
+      compatible = "zmk,behavior-mod-morph";
+      label = "PIPE";
+      #binding-cells = <0>;
+      bindings = <&kp LC(LA(NUBS))>, <&kp LC(LA(NUBS))>;
+      mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+    CU_PLUS: plus_equal {
+      compatible = "zmk,behavior-mod-morph";
       label = "PLUS_EQUAL";
       #binding-cells = <0>;
       bindings = <&kp KP_PLUS>, <&kp LS(NUMBER_0)>;
-      mods = <(MOD_LSFT)>;
+      mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+    CU_QUES: question {
+      compatible = "zmk,behavior-mod-morph";
+      label = "QUESTION MARK";
+      #binding-cells = <0>;
+      bindings = <&kp LS(MINUS)>, <&kp LS(MINUS)>;
+      mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+    CU_SLASH: slash_backslash {
+      compatible = "zmk,behavior-mod-morph";
+      label = "SLASH_BACKSLASH";
+      #binding-cells = <0>;
+      bindings = <&kp KP_SLASH>, <&kp LC(LA(MINUS))>;
+      mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+    CU_SS: sharp_s {
+      compatible = "zmk,behavior-mod-morph";
+      label = "SHARP S";
+      #binding-cells = <0>;
+      bindings = <&kp MINUS>, <&kp MINUS>;
+      mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+    CU_USCORE: underscore {
+      compatible = "zmk,behavior-mod-morph";
+      label = "UNDERSCORE";
+      #binding-cells = <0>;
+      bindings = <&kp LS(SLASH)>, <&kp LS(SLASH)>;
+      mods = <(MOD_LSFT|MOD_RSFT)>;
     };
   };
+
   keymap {
     compatible = "zmk,keymap";
 
-    default_layer {
+    base_layer {
       // -----------------------------------------------------------------------------------------
-      // |  TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | BKSP |
-      // | CTRL |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '   |
-      // | SHFT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | ESC  |
-      //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
+      // | TAB       | Q | W | F | P | B |  | J | L | U | Y | - | OSM(GUI)  |
+      // | CTRL(ESC) | A | R | S | T | G |  | M | N | E | I | O | OSM(Ctrl) |
+      // | OSM(SHFT) | Z | X | C | D | V |  | K | H | . | , | / | OSM(SHFT) |
+      //
+      // | LT3(:) | LT1(Bksp) | LT2(Del) | -- | Lt2(Ret)| Lt1(Space)  | OSM(ALT) 
       bindings = <
-        &kp TAB   &kp Q &kp W &kp E &kp R &kp T   &kp Y &kp U  &kp I     &kp O   &kp P    &kp BSPC
-        &kp LCTRL &kp A &kp S &kp D &kp F &kp G   &kp H &kp J  &kp K     &kp L   &kp SEMI &kp SQT
-        &kp LSHFT &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &kp ESC
-        &kp LGUI &mo 1 &kp SPACE   &kp RET &mo 2 &kp RALT
+        &kp TAB       &kp Q &kp W     &kp F   &kp P &kp B &kp J &kp L &kp U     &kp Y   &kp SLASH &sk LGUI
+        &mt LCTRL ESC &kp A &kp R     &kp S   &kp T &kp G &kp M &kp N &kp E     &kp I   &kp O     &sk RCTRL
+        &sk LSHFT     &kp Z &kp X     &kp C   &kp D &kp V &kp K &kp H &CU_COMMA &CU_DOT &CU_SLASH &sk RSHFT
+        &lt FKEYS COLON &lt BACKSPACE SYMBOL &lt NUMPAD DELETE &lt NUMPAD ENTER &lt SYMBOL SPACE &sk LALT
         >;
     };
-    lower_layer {
+    symbol_layer {
       // -----------------------------------------------------------------------------------------
-      // |  TAB |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | BKSP |
-      // | BTCLR| BT1 | BT2 | BT3 | BT4 | BT5 |   | LFT | DWN |  UP | RGT |     |      |
-      // | SHFT |     |     |     |     |     |   |     |     |     |     |     |      |
-      //                    | GUI |     | SPC |   | ENT |     | ALT |
+      // |  TAB      | ´ | € | ? | [ | ! |   | ~ | ] | % | § | ° | OSM(GUI)  |
+      // | CTRL(ESC) | # | | | & | ( | _ |   | ^ | ) | " | ' | $ | OSM(CTRL) |
+      // | OSM(SHFT) | Ä | < | ß | { | = |   | @ | } | Ü | > | Ö | OSM(SHFT) |
+      //
+      // | LT3(:) | LT1(Bksp) | LT2(Del) | -- | Lt2(Ret)| Lt1(Space)  | OSM(ALT) 
       bindings = <
-        &kp TAB    &kp N1       &kp N2       &kp N3       &kp N4       &kp N5         &kp N6   &kp N7   &kp N8 &kp N9    &kp N0 &kp BSPC
-        &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4   &kp LEFT &kp DOWN &kp UP &kp RIGHT &trans &trans
-        &kp LSHFT  &trans       &trans       &trans       &trans       &trans         &trans   &trans   &trans &trans    &trans &trans
-        &kp LGUI     &trans       &kp SPACE      &kp RET  &trans   &kp RALT
+        &trans &kp EQUAL &kp LC(LA(E)) &CU_QUES &CU_O_BRCK  &CU_EXCLAM &kp N6   &kp N7   &kp N8 &kp N9    &kp N0 &trans
+        &trans &CU_HASH  &CU_PIPE      &CU_AMP  &CU_O_PAREN &CU_USCORE &kp LEFT &kp DOWN &kp UP &kp RIGHT &trans &trans
+        &trans &kp APOS  &CU_LT        &CU_SS   &CU_O_CURL  &CU_EQUAL  &trans   &trans   &trans &trans    &trans &trans
+        &trans &trans &trans &trans &trans &trans
         >;
     };
 
-    raise_layer {
+    numpad_layer {
+      // -----------------------------------------------------------------------------------------
+      // |  TAB |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  | BKSP |
+      // | CTRL |     |     |     |     |     |   |  -  |  =  |  [  |  ]  |  \  |  `   |
+      // | SHFT |     |     |     |     |     |   |  _  |  +  |  {  |  }  | "|" |  ~   |
+      //                    | GUI |     | SPC |   | ENT |     | ALT |
+      bindings = <
+        &kp  TAB  &kp EXCL &kp AT &kp HASH &kp DLLR &kp PRCNT   &kp CARET &kp AMPS  &kp KP_MULTIPLY &kp LPAR &kp RPAR &kp BSPC
+        &kp LCTRL &trans   &trans &trans   &trans   &trans      &kp MINUS &kp EQUAL &kp LBKT        &kp RBKT &kp BSLH &kp GRAVE
+        &kp LSHFT &trans   &trans &trans   &trans   &trans      &kp UNDER &kp PLUS  &kp LBRC        &kp RBRC &kp PIPE &kp TILDE
+        &kp LGUI &trans   &kp SPACE   &kp RET   &trans    &kp RALT
+        >;
+    };
+
+    fkey_layer {
       // -----------------------------------------------------------------------------------------
       // |  TAB |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  | BKSP |
       // | CTRL |     |     |     |     |     |   |  -  |  =  |  [  |  ]  |  \  |  `   |
