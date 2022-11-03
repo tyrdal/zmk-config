@@ -141,6 +141,13 @@
       bindings = <&kp NUHS>, <&kp NUHS>;
       mods = <(MOD_LSFT|MOD_RSFT)>;
     };
+    CU_KP_DOT_COMMA: kp_dot_comma {
+      compatible = "zmk,behavior-mod-morph";
+      label = "KEYPAD DOR COMMA";
+      #binding-cells = <0>;
+      bindings = <&kp KP_DOT>, <&kp KP_COMMA>;
+      mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
     CU_LT: less_than {
       compatible = "zmk,behavior-mod-morph";
       label = "LESS THAN";
@@ -197,7 +204,7 @@
       bindings = <&kp LC(LA(NUBS))>, <&kp LC(LA(NUBS))>;
       mods = <(MOD_LSFT|MOD_RSFT)>;
     };
-    CU_PLUS: plus_equal {
+    CU_PLUS_EQ: plus_equal {
       compatible = "zmk,behavior-mod-morph";
       label = "PLUS_EQUAL";
       #binding-cells = <0>;
