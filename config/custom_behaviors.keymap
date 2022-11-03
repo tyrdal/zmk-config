@@ -1,0 +1,252 @@
+/ {
+    macros {
+      CU_EMAIL: email {
+        compatible = "zmk,behavior-macro";
+        label = "EMail Address";
+        #binding-cells = <0>;
+        bindings =  <&macro_tap &kp R &kp E &kp N &kp E &kp LS(SLASH) &kp M &kp O &kp E &kp H &kp R &kp I &kp N &kp G>
+                   ,<&macro_tap &kp LC(LA(Q)) &kp G &kp M &kp X &kp DOT &kp D &kp E >;
+      };
+      CU_FULL_NAME: full_name {
+        compatible = "zmk,behavior-macro";
+        label = "Full Name";
+        #binding-cells = <0>;
+        bindings =  <&macro_tap &kp LS(R) &kp E &kp N &kp GRAVE &kp E &kp SPACE &kp LS(M) &kp SEMI &kp H &kp R &kp I &kp N &kp G>;
+      };
+      CU_FIRST_NAME: first_name {
+        compatible = "zmk,behavior-macro";
+        label = "First Name";
+        #binding-cells = <0>;
+        bindings =  <&macro_tap &kp LS(R) &kp E &kp N &kp GRAVE &kp E>;
+      };
+      CU_LAST_NAME: last_name {
+        compatible = "zmk,behavior-macro";
+        label = "Last Name";
+        #binding-cells = <0>;
+        bindings =  <&macro_tap &kp LS(M) &kp SEMI &kp H &kp R &kp I &kp N &kp G>;
+      };
+      CU_CIRC_DE: circumflex_de {
+        compatible = "zmk,behavior-macro";
+        label = "CIRCUMFLEX DE";
+        #binding-cells = <0>;
+        bindings =  <&macro_tap &kp GRAVE &kp SPACE>;
+      };
+    };
+  };
+
+/ {
+  behaviors {
+    CU_AMP: ampersand {
+      compatible = "zmk,behavior-mod-morph";
+      label = "AMPERSAND";
+      #binding-cells = <0>;
+      bindings = <&kp LS(NUMBER_6)>, <&kp LS(NUMBER_6)>;
+      mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+    CU_AT: at {
+      compatible = "zmk,behavior-mod-morph";
+      label = "AT";
+      #binding-cells = <0>;
+      bindings = <&kp LC(LA(Q))>, <&kp LC(LA(Q))>;
+      mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+    CU_CIRC: circumflex {
+      compatible = "zmk,behavior-mod-morph";
+      label = "CIRCUMFLEX";
+      #binding-cells = <0>;
+      bindings = <&CU_CIRC_DE>, <&kp GRAVE>;
+      mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+    CU_COMMA: comma_semicolon {
+      compatible = "zmk,behavior-mod-morph";
+      label = "COMMA_SEMICOLON";
+      #binding-cells = <0>;
+      bindings = <&kp COMMA>, <&kp LS(COMMA)>;
+      mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+    CU_C_BRCK: close_bracket {
+      compatible = "zmk,behavior-mod-morph";
+      label = "CLOSING BRACKET";
+      #binding-cells = <0>;
+      bindings = <&kp LC(LA(NUMBER_9))>, <&kp LC(LA(NUMBER_9))>;
+      mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+    CU_C_CURL: close_curly {
+      compatible = "zmk,behavior-mod-morph";
+      label = "CLOSING CURLY BRACE";
+      #binding-cells = <0>;
+      bindings = <&kp LC(LA(NUMBER_0))>, <&kp LC(LA(NUMBER_0))>;
+      mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+    CU_C_PAREN: close_parenthesis {
+      compatible = "zmk,behavior-mod-morph";
+      label = "CLOSING PARENTHESIS";
+      #binding-cells = <0>;
+      bindings = <&kp LS(NUMBER_9)>, <&kp LS(NUMBER_9)>;
+      mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+    CU_DEG: degree{
+      compatible = "zmk,behavior-mod-morph";
+      label = "DEGREE";
+      #binding-cells = <0>;
+      bindings = <&kp LS(GRAVE)>, <&kp LS(GRAVE)>;
+      mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+    CU_DOLLAR: dollar{
+      compatible = "zmk,behavior-mod-morph";
+      label = "DOLLAR";
+      #binding-cells = <0>;
+      bindings = <&kp LS(NUMBER_4)>, <&kp LS(NUMBER_4)>;
+      mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+    CU_DOT: dot_repeat {
+      compatible = "zmk,behavior-mod-morph";
+      label = "DOT_REPEAT";
+      #binding-cells = <0>;
+      bindings = <&kp DOT>, <&key_repeat>;
+      mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+    CU_DQUOT: double_quote {
+      compatible = "zmk,behavior-mod-morph";
+      label = "DOUBLE QUOTE";
+      #binding-cells = <0>;
+      bindings = <&kp LS(NUMBER_2)>, <&kp LS(NUMBER_2)>;
+      mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+    CU_EQUAL: equal {
+      compatible = "zmk,behavior-mod-morph";
+      label = "EQUAL";
+      #binding-cells = <0>;
+      bindings = <&kp LS(NUMBER_0)>, <&kp LS(NUMBER_0)>;
+      mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+    CU_EXCLAM: exclamation_mark {
+      compatible = "zmk,behavior-mod-morph";
+      label = "EXCLAMATION MARK";
+      #binding-cells = <0>;
+      bindings = <&kp LS(NUMBER_1)>, <&kp LS(NUMBER_1)>;
+      mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+    CU_GT: greater_than {
+      compatible = "zmk,behavior-mod-morph";
+      label = "GREATER THAN";
+      #binding-cells = <0>;
+      bindings = <&kp LS(NON_US_BACKSLASH)>, <&kp LS(NON_US_BACKSLASH)>;
+      mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+    CU_HASH: equal {
+      compatible = "zmk,behavior-mod-morph";
+      label = "HASH";
+      #binding-cells = <0>;
+      bindings = <&kp NUHS>, <&kp NUHS>;
+      mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+    CU_LT: less_than {
+      compatible = "zmk,behavior-mod-morph";
+      label = "LESS THAN";
+      #binding-cells = <0>;
+      bindings = <&kp NON_US_BACKSLASH>, <&kp NON_US_BACKSLASH>;
+      mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+    CU_NAMES: names {
+      compatible = "zmk,behavior-mod-morph";
+      label = "NAME MACROS";
+      #binding-cells = <0>;
+      bindings = <&CU_EMAIL>, <&CU_FULL_NAME>;
+      mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+    CU_O_BRCK: open_bracket {
+      compatible = "zmk,behavior-mod-morph";
+      label = "OPENING BRACKET";
+      #binding-cells = <0>;
+      bindings = <&kp LC(LA(NUMBER_8))>, <&kp LC(LA(NUMBER_8))>;
+      mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+    CU_O_CURL: open_curly {
+      compatible = "zmk,behavior-mod-morph";
+      label = "OPENING CURLY BRACE";
+      #binding-cells = <0>;
+      bindings = <&kp LC(LA(NUMBER_7))>, <&kp LC(LA(NUMBER_7))>;
+      mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+    CU_O_PAREN: open_parenthesis {
+      compatible = "zmk,behavior-mod-morph";
+      label = "OPENING PARENTHESIS";
+      #binding-cells = <0>;
+      bindings = <&kp LS(NUMBER_8)>, <&kp LS(NUMBER_8)>;
+      mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+    CU_PARA: paragraph {
+      compatible = "zmk,behavior-mod-morph";
+      label = "PARAGRAPH";
+      #binding-cells = <0>;
+      bindings = <&kp LS(NUMBER_3)>, <&kp LS(NUMBER_3)>;
+      mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+    CU_PERC: percent {
+      compatible = "zmk,behavior-mod-morph";
+      label = "PERCENT";
+      #binding-cells = <0>;
+      bindings = <&kp LS(NUMBER_5)>, <&kp LS(NUMBER_5)>;
+      mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+    CU_PIPE: pipe {
+      compatible = "zmk,behavior-mod-morph";
+      label = "PIPE";
+      #binding-cells = <0>;
+      bindings = <&kp LC(LA(NUBS))>, <&kp LC(LA(NUBS))>;
+      mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+    CU_PLUS: plus_equal {
+      compatible = "zmk,behavior-mod-morph";
+      label = "PLUS_EQUAL";
+      #binding-cells = <0>;
+      bindings = <&kp KP_PLUS>, <&kp LS(NUMBER_0)>;
+      mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+    CU_QUES: question {
+      compatible = "zmk,behavior-mod-morph";
+      label = "QUESTION MARK";
+      #binding-cells = <0>;
+      bindings = <&kp LS(MINUS)>, <&kp LS(MINUS)>;
+      mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+    CU_SLASH: slash_backslash {
+      compatible = "zmk,behavior-mod-morph";
+      label = "SLASH_BACKSLASH";
+      #binding-cells = <0>;
+      bindings = <&kp KP_SLASH>, <&kp LC(LA(MINUS))>;
+      mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+    CU_SQUOT: single_quote {
+      compatible = "zmk,behavior-mod-morph";
+      label = "SINGLE QUOTE";
+      #binding-cells = <0>;
+      bindings = <&kp LS(NON_US_HASH)>, <&kp LS(NON_US_HASH)>;
+      mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+    CU_SS: sharp_s {
+      compatible = "zmk,behavior-mod-morph";
+      label = "SHARP S";
+      #binding-cells = <0>;
+      bindings = <&kp MINUS>, <&kp MINUS>;
+      mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+    CU_TILDE: tilde {
+      compatible = "zmk,behavior-mod-morph";
+      label = "TILDE";
+      #binding-cells = <0>;
+      bindings = <&kp LC(LA(RIGHT_BRACKET))>, <&kp LC(LA(RIGHT_BRACKET))>;
+      mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+    CU_USCORE: underscore {
+      compatible = "zmk,behavior-mod-morph";
+      label = "UNDERSCORE";
+      #binding-cells = <0>;
+      bindings = <&kp LS(SLASH)>, <&kp LS(SLASH)>;
+      mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+  };
+};
+
+// vim :set expandtab
