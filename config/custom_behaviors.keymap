@@ -1,38 +1,85 @@
 / {
     macros {
-      CU_EMAIL: email {
+      MA_EMAIL: email {
         compatible = "zmk,behavior-macro";
         label = "EMail Address";
         #binding-cells = <0>;
         bindings =  <&macro_tap &kp R &kp E &kp N &kp E &kp LS(SLASH) &kp M &kp O &kp E &kp H &kp R &kp I &kp N &kp G>
                    ,<&macro_tap &kp LC(LA(Q)) &kp G &kp M &kp X &kp DOT &kp D &kp E >;
       };
-      CU_FULL_NAME: full_name {
+      MA_FULL_NAME: full_name {
         compatible = "zmk,behavior-macro";
         label = "Full Name";
         #binding-cells = <0>;
         bindings =  <&macro_tap &kp LS(R) &kp E &kp N &kp GRAVE &kp E &kp SPACE &kp LS(M) &kp SEMI &kp H &kp R &kp I &kp N &kp G>;
       };
-      CU_FIRST_NAME: first_name {
+      MA_FIRST_NAME: first_name {
         compatible = "zmk,behavior-macro";
         label = "First Name";
         #binding-cells = <0>;
         bindings =  <&macro_tap &kp LS(R) &kp E &kp N &kp GRAVE &kp E>;
       };
-      CU_LAST_NAME: last_name {
+      MA_LAST_NAME: last_name {
         compatible = "zmk,behavior-macro";
         label = "Last Name";
         #binding-cells = <0>;
         bindings =  <&macro_tap &kp LS(M) &kp SEMI &kp H &kp R &kp I &kp N &kp G>;
       };
-      CU_CIRC_DE: circumflex_de {
+      MA_CIRC_DE: circumflex_de {
         compatible = "zmk,behavior-macro";
         label = "CIRCUMFLEX DE";
         #binding-cells = <0>;
-        bindings =  <&macro_tap &kp GRAVE &kp SPACE>;
+        bindings = <&macro_tap &kp GRAVE &kp SPACE>;
+      };
+      MA_N_BIF: bigram_file {
+        compatible = "zmk,behavior-macro";
+        label = "BIGRAM IN FILE";
+        #binding-cells = <0>;
+        bindings = <&macro_tap &kp ESC &kp SPACE &kp N &kp F>;
+      };
+      MA_N_CL: char_line {
+        compatible = "zmk,behavior-macro";
+        label = "CHAR IN LINE";
+        #binding-cells = <0>;
+        bindings = <&macro_tap &kp ESC &kp SPACE &kp N &kp J>;
+      };
+      MA_N_BIL: bigram_line {
+        compatible = "zmk,behavior-macro";
+        label = "BIGRAM IN LINE";
+        #binding-cells = <0>;
+        bindings = <&macro_tap &kp ESC &kp SPACE &kp N &kp LS(J)>;
+      };
+      MA_N_WORD: word_line {
+        compatible = "zmk,behavior-macro";
+        label = "WORD IN LINE";
+        #binding-cells = <0>;
+        bindings = <&macro_tap &kp ESC &kp SPACE &kp N &kp B>;
+      };
+      MA_N_LINE: line_file {
+        compatible = "zmk,behavior-macro";
+        label = "LINE IN FILE";
+        #binding-cells = <0>;
+        bindings = <&macro_tap &kp ESC &kp SPACE &kp N &kp Z>;
+      };
+      MA_D_LINE: line_file {
+        compatible = "zmk,behavior-macro";
+        label = " DIAGNOSTICS IN LINE";
+        #binding-cells = <0>;
+        bindings = <&macro_tap &kp ESC &kp SPACE &kp SLASH &kp D &kp L>;
       };
     };
   };
+
+/ {
+    combos {
+      compatible = "zmk,combos";
+      combo_esc {
+        timeout-ms = <50>;
+        key-positions = <0 1>;
+        bindings = <&kp ESC>;
+      };
+    };
+};
 
 / {
   behaviors {
@@ -54,7 +101,7 @@
       compatible = "zmk,behavior-mod-morph";
       label = "CIRCUMFLEX";
       #binding-cells = <0>;
-      bindings = <&CU_CIRC_DE>, <&kp GRAVE>;
+      bindings = <&MA_CIRC_DE>, <&kp GRAVE>;
       mods = <(MOD_LSFT|MOD_RSFT)>;
     };
     CU_COMMA: comma_semicolon {
@@ -159,7 +206,7 @@
       compatible = "zmk,behavior-mod-morph";
       label = "NAME MACROS";
       #binding-cells = <0>;
-      bindings = <&CU_EMAIL>, <&CU_FULL_NAME>;
+      bindings = <&MA_EMAIL>, <&MA_FULL_NAME>;
       mods = <(MOD_LSFT|MOD_RSFT)>;
     };
     CU_O_BRCK: open_bracket {
@@ -252,6 +299,90 @@
       #binding-cells = <0>;
       bindings = <&kp LS(SLASH)>, <&kp LS(SLASH)>;
       mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+    TD_F1: tap_dance_F1 {
+      compatible = "zmk,behavior-tap-dance";
+      label = "TAP_DANCE_F1";
+      #binding-cells = <0>;
+      tapping-term-ms = <200>;
+      bindings = <&kp F1>, <&kp F13>;
+    };
+    TD_F2: tap_dance_F2 {
+      compatible = "zmk,behavior-tap-dance";
+      label = "TAP_DANCE_F2";
+      #binding-cells = <0>;
+      tapping-term-ms = <200>;
+      bindings = <&kp F2>, <&kp F14>;
+    };
+    TD_F3: tap_dance_F3 {
+      compatible = "zmk,behavior-tap-dance";
+      label = "TAP_DANCE_F3";
+      #binding-cells = <0>;
+      tapping-term-ms = <200>;
+      bindings = <&kp F3>, <&kp F15>;
+    };
+    TD_F4: tap_dance_F4 {
+      compatible = "zmk,behavior-tap-dance";
+      label = "TAP_DANCE_F4";
+      #binding-cells = <0>;
+      tapping-term-ms = <200>;
+      bindings = <&kp F4>, <&kp F16>;
+    };
+    TD_F5: tap_dance_F5 {
+      compatible = "zmk,behavior-tap-dance";
+      label = "TAP_DANCE_F5";
+      #binding-cells = <0>;
+      tapping-term-ms = <200>;
+      bindings = <&kp F5>, <&kp F17>;
+    };
+    TD_F6: tap_dance_F6 {
+      compatible = "zmk,behavior-tap-dance";
+      label = "TAP_DANCE_F6";
+      #binding-cells = <0>;
+      tapping-term-ms = <200>;
+      bindings = <&kp F6>, <&kp F18>;
+    };
+    TD_F7: tap_dance_F7 {
+      compatible = "zmk,behavior-tap-dance";
+      label = "TAP_DANCE_F7";
+      #binding-cells = <0>;
+      tapping-term-ms = <200>;
+      bindings = <&kp F7>, <&kp F19>;
+    };
+    TD_F8: tap_dance_F8 {
+      compatible = "zmk,behavior-tap-dance";
+      label = "TAP_DANCE_F8";
+      #binding-cells = <0>;
+      tapping-term-ms = <200>;
+      bindings = <&kp F8>, <&kp F20>;
+    };
+    TD_F9: tap_dance_F9 {
+      compatible = "zmk,behavior-tap-dance";
+      label = "TAP_DANCE_F9";
+      #binding-cells = <0>;
+      tapping-term-ms = <200>;
+      bindings = <&kp F9>, <&kp F21>;
+    };
+    TD_F10: tap_dance_F10 {
+      compatible = "zmk,behavior-tap-dance";
+      label = "TAP_DANCE_F10";
+      #binding-cells = <0>;
+      tapping-term-ms = <200>;
+      bindings = <&kp F10>, <&kp F22>;
+    };
+    TD_F11: tap_dance_F11 {
+      compatible = "zmk,behavior-tap-dance";
+      label = "TAP_DANCE_F11";
+      #binding-cells = <0>;
+      tapping-term-ms = <200>;
+      bindings = <&kp F11>, <&kp F23>;
+    };
+    TD_F12: tap_dance_F12 {
+      compatible = "zmk,behavior-tap-dance";
+      label = "TAP_DANCE_F12";
+      #binding-cells = <0>;
+      tapping-term-ms = <200>;
+      bindings = <&kp F12>, <&kp F24>;
     };
   };
 };

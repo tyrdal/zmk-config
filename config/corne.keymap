@@ -84,15 +84,15 @@
 
     fkey_layer {
       // -----------------------------------------------------------------------------------------
-      // | PRINT | F13 | F14 | F15 | F16 | NEXT |   | VOL_UP     | F1 | F2  | F3  | F4  | NAMES     |
-      // | SCLCK | F17 | F18 | F19 | F20 | MUTE |   | PLAY_PAUSE | F5 | F6  | F7  | F8  | trans |
-      // | BREAK | F21 | F22 | F23 | F24 | PREV |   | VOL_DOWN   | F9 | F10 | F11 | F12 | trans |
+      // | PRINT |           |           | MA_N_BIL |           | NEXT |   | VOL_UP     | TD_F1 | TD_F2  | TD_F3  | TD_F4  | NAMES     |
+      // | SCLCK | MA_N_WORD | MA_N_LINE | MA_N_CL  | MA_N_BIF  | MUTE |   | PLAY_PAUSE | TD_F5 | TD_F6  | TD_F7  | TD_F8  | trans |
+      // | BREAK |           |           |          | MA_D_LINE | PREV |   | VOL_DOWN   | TD_F9 | TD_F10 | TD_F11 | TD_F12 | trans |
       //
       // | trans |   |   | --  | POWER | SLEEP | trans |
       bindings = <
-        &kp PSCRN       &kp F13 &kp F14 &kp F15 &kp F16 &kp C_NEXT     &kp C_VOL_UP     &kp F1 &kp F2  &kp F3  &kp F4  &CU_NAMES
-        &kp SLCK        &kp F17 &kp F18 &kp F19 &kp F20 &kp C_MUTE     &kp C_PLAY_PAUSE &kp F5 &kp F6  &kp F7  &kp F8  &trans
-        &kp PAUSE_BREAK &kp F21 &kp F22 &kp F23 &kp F24 &kp C_PREV     &kp C_VOL_DN     &kp F9 &kp F10 &kp F11 &kp F12 &trans
+        &kp PSCRN       &none      &none      &MA_N_BIL &none      &kp C_NEXT     &kp C_VOL_UP     &TD_F1 &TD_F2  &TD_F3  &TD_F4  &CU_NAMES
+        &kp SLCK        &MA_N_WORD &MA_N_LINE &MA_N_CL  &MA_N_BIF  &kp C_MUTE     &kp C_PLAY_PAUSE &TD_F5 &TD_F6  &TD_F7  &TD_F8  &trans
+        &kp PAUSE_BREAK &none      &none      &none     &MA_D_LINE &kp C_PREV     &kp C_VOL_DN     &TD_F9 &TD_F10 &TD_F11 &TD_F12 &trans
         &trans &none &none &kp K_POWER &kp K_SLEEP &trans
         >;
     };
