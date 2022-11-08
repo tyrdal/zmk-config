@@ -1,3 +1,5 @@
+#include <dt-bindings/zmk/bt.h>
+
 / {
     macros {
       MA_EMAIL: email {
@@ -73,10 +75,35 @@
 / {
     combos {
       compatible = "zmk,combos";
-      combo_esc {
+      CO_RESET_L {
         timeout-ms = <50>;
-        key-positions = <0 1>;
-        bindings = <&kp ESC>;
+        key-positions = <1 2 3>;
+        bindings = <&reset>;
+        layers = <3>;
+      };
+      CO_RESET_R {
+        timeout-ms = <50>;
+        key-positions = <10 9 8>;
+        bindings = <&reset>;
+        layers = <3>;
+      };
+      CO_FLASH_L {
+        timeout-ms = <50>;
+        key-positions = <5 4 3>;
+        bindings = <&reset>;
+        layers = <3>;
+      };
+      CO_FLASH_R {
+        timeout-ms = <50>;
+        key-positions = <6 7 8>;
+        bindings = <&reset>;
+        layers = <3>;
+      };
+      CO_BT_CLR {
+        timeout-ms = <50>;
+        key-positions = <0 12 24>;
+        bindings = <&bt BT_CLR>;
+        layers = <3>;
       };
     };
 };
@@ -383,6 +410,27 @@
       #binding-cells = <0>;
       tapping-term-ms = <200>;
       bindings = <&kp F12>, <&kp F24>;
+    };
+    TD_PRINT_BT_NXT: tap_dance_print_bt_next {
+      compatible = "zmk,behavior-tap-dance";
+      label = "TAP DANCE PRINT BTNEXT";
+      #binding-cells = <0>;
+      tapping-term-ms = <200>;
+      bindings = <&kp PSCRN>, <&bt BT_NXT>;
+    };
+    TD_SLCK_BT_PRV: tap_dance_slck_bt_prev {
+      compatible = "zmk,behavior-tap-dance";
+      label = "TAP DANCE SLCK BTPREV";
+      #binding-cells = <0>;
+      tapping-term-ms = <200>;
+      bindings = <&kp SLCK>, <&bt BT_PRV>;
+    };
+    TD_PAUSE_BT_0: tap_dance_pause_bt_0 {
+      compatible = "zmk,behavior-tap-dance";
+      label = "TAP DANCE PAUSE BT0";
+      #binding-cells = <0>;
+      tapping-term-ms = <200>;
+      bindings = <&kp PAUSE_BREAK>, <&bt BT_SEL 0>;
     };
   };
 };
