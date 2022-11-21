@@ -29,7 +29,6 @@
 };
 
 // TODO
-// autoshift
 // reset, bootloader numlock combos
 
 // numlock combo
@@ -39,45 +38,46 @@
     compatible = "zmk,keymap";
 
     base_layer {
-      // -----------------------------------------------------------------------------------------
+      // --------------------------------------------------------------------
       // | TAB       | Q | W | F | P | B |  | J | L | U | Y | - | OSM(GUI)  |
       // | CTRL(ESC) | A | R | S | T | G |  | M | N | E | I | O | OSM(Ctrl) |
       // | OSM(SHFT) | Z | X | C | D | V |  | K | H | . | , | / | OSM(SHFT) |
       //
       // | LT3(:) | LT1(Bksp) | LT2(Del) | -- | Lt2(Ret)| Lt1(Space)  | OSM(ALT) |
       bindings = <
-        &kp TAB       &kp Q &kp W     &kp F   &kp P &kp B &kp J &kp L &kp U     &kp Y   &kp SLASH &sk LGUI
-        &mt LCTRL ESC &kp A &kp R     &kp S   &kp T &kp G &kp M &kp N &kp E     &kp I   &kp O     &sk RCTRL
-        &sk LSHFT     &kp Z &kp X     &kp C   &kp D &kp V &kp K &kp H &CU_COMMA &CU_DOT &CU_SLASH &sk RSHFT
+        &kp TAB       AS(Q) AS(W) AS(F) AS(P) AS(B) AS(J) AS(L) AS(U)     AS(Y)  AS(SLASH) &sk LGUI
+        &mt LCTRL ESC AS(A) AS(R) AS(S) AS(T) AS(G) AS(M) AS(N) AS(E)     AS(I)  AS(O)     &sk RCTRL
+        &sk LSHFT     AS(Z) AS(X) AS(C) AS(D) AS(V) AS(K) AS(H) AS(COMMA) AS_DOT AS_SLASH  &sk RSHFT
         &lt FKEYS LS(SEMICOLON) &lt SYMBOL BACKSPACE &lt NUMPAD DELETE &lt NUMPAD ENTER &lt SYMBOL SPACE &sk LALT
         >;
     };
+
     symbol_layer {
-      // -----------------------------------------------------------------------------------------
+      // -------------------------------------------------------------
       // | trans | ´ | € | ? | [ | ! |   | ~ | ] | % | § | ° | trans |
       // | trans | # | | | & | ( | _ |   | ^ | ) | " | ' | $ | trans |
       // | trans | Ä | < | ß | { | = |   | @ | } | Ü | > | Ö | trans |
       //
       // | trans | trans | trans | -- | trans trans  | trans 
       bindings = <
-        &trans &kp EQUAL &kp LC(LA(E)) &CU_QUES &CU_O_BRCK  &CU_EXCLAM   &CU_TILDE &CU_C_BRCK  &CU_PERC         &CU_PARA  &CU_DEG    &trans
-        &trans &CU_HASH  &CU_PIPE      &CU_AMP  &CU_O_PAREN &CU_USCORE   &CU_CIRC  &CU_C_PAREN &CU_DQUOT        &CU_SQUOT &CU_DOLLAR &trans
-        &trans &kp APOS  &CU_LT        &CU_SS   &CU_O_CURL  &CU_EQUAL    &CU_AT    &CU_C_CURL  &kp LEFT_BRACKET &CU_GT    &kp SEMI   &trans
+        &trans AS_GRAVE AS_EURO AS_QUES AS_O_BRCK  AS_EXCLAM AS_TILDE AS_C_BRCK  AS_PERC  AS_PARA  AS_DEG    &trans
+        &trans AS_HASH  AS_PIPE AS_AMP  AS_O_PAREN AS_USCORE AS_CIRC  AS_C_PAREN AS_DQUOT AS_SQUOT AS_DOLLAR &trans
+        &trans AS_AE    AS_LT   AS_SS   AS_O_CURL  AS_EQUAL  AS_AT    AS_C_CURL  AS_UE    AS_GT    AS_OE     &trans
         &trans &trans &trans &trans &trans &trans
         >;
     };
 
     numpad_layer {
-      // -----------------------------------------------------------------------------------------
-      // | trans | PGUP  | MLEFT | UP   | MRIGHT | MUP  |   |  /  |  7  |  8  |  9  | -  | trans  |
-      // | trans | PGDWN | LEFT  | DOWN | RIGHT  | MDWN |   |  *  |  4  |  5  |  6  | += | trans |
-      // | trans | END   |       | HYP  | MEH    | HOME |   |  .  |  1  |  2  |  3  | 0  | trans |
+      // ---------------------------------------------------------------------------------
+      // | trans | PGUP  | MLEFT | UP   | MRIGHT | MUP  |   | / | 7 | 8 | 9 | -  | trans |
+      // | trans | PGDWN | LEFT  | DOWN | RIGHT  | MDWN |   | * | 4 | 5 | 6 | += | trans |
+      // | trans | END   |       | HYP  | MEH    | HOME |   | . | 1 | 2 | 3 | 0  | trans |
       //
       // | trans | trans | trans | -- | trans trans  | trans 
       bindings = <
-        &trans &kp PAGE_UP   &none    &kp UP                &none             &none      &kp KP_SLASH     &kp KP_NUMBER_7       &kp KP_NUMBER_8      &kp KP_NUMBER_9       &kp KP_MINUS    &trans
-        &trans &kp PAGE_DOWN &kp LEFT &kp DOWN              &kp RIGHT         &none      &kp KP_MULTIPLY  &mt LCTRL KP_NUMBER_4 &mt LALT KP_NUMBER_5 &mt LSHFT KP_NUMBER_6 &CU_PLUS_EQ     &trans
-        &trans &kp END       &none    &sk LG(LC(LA(LSHFT))) &sk LC(LA(LSHFT)) &kp HOME   &CU_KP_DOT_COMMA &kp KP_NUMBER_1       &kp KP_NUMBER_2      &kp KP_NUMBER_3       &kp KP_NUMBER_0 &trans
+        &trans &kp PAGE_UP   &none    &kp UP                &none             &none    &kp KP_SLASH     &kp KP_NUMBER_7       &kp KP_NUMBER_8      &kp KP_NUMBER_9       &kp KP_MINUS    &trans
+        &trans &kp PAGE_DOWN &kp LEFT &kp DOWN              &kp RIGHT         &none    &kp KP_MULTIPLY  &mt LCTRL KP_NUMBER_4 &mt LALT KP_NUMBER_5 &mt LSHFT KP_NUMBER_6 AS_PLUS_EQ     &trans
+        &trans &kp END       &none    &sk LG(LC(LA(LSHFT))) &sk LC(LA(LSHFT)) &kp HOME AS_KP_DOT_COMMA  &kp KP_NUMBER_1       &kp KP_NUMBER_2      &kp KP_NUMBER_3       &kp KP_NUMBER_0 &trans
         &trans &trans &trans &trans &trans &trans
         >;
     };
@@ -90,10 +90,9 @@
       //
       // | trans |   |   | --  | POWER | SLEEP | trans |
       bindings = <
-        &TD_PRINT_BT_NXT &none      &none      &MA_N_BIL &none      &kp C_NEXT     &kp C_VOL_UP     &TD_F1 &TD_F2  &TD_F3  &TD_F4  &CU_NAMES
-        &TD_SLCK_BT_PRV  &MA_N_WORD &MA_N_LINE &MA_N_CL  &MA_N_BIF  &kp C_MUTE     &kp C_PLAY_PAUSE &TD_F5 &TD_F6  &TD_F7  &TD_F8  &trans
-        &TD_PAUSE_BT_0    &none      &none      &none     &MA_D_LINE &kp C_PREV     &kp C_VOL_DN     &TD_F9 &TD_F10 &TD_F11 &TD_F12 &trans
-        &trans &none &none &kp K_POWER &kp K_SLEEP &trans
+        &TD_PRINT_BT_NXT &none      &none      &MA_N_BIL &none     &kp C_NEXT &kp C_VOL_UP     &TD_F1 &TD_F2  &TD_F3 &TD_F4  &CU_NAMES
+        &TD_SLCK_BT_PRV  &MA_N_WORD &MA_N_LINE &MA_N_CL  &MA_N_BIF &kp C_MUTE &kp C_PLAY_PAUSE &TD_F5 &TD_F6  &TD_F7  &TD_F8 &trans
+        &trans &none &kp C_RESET &kp C_POWER &kp C_SLEEP &trans
         >;
     };
   };

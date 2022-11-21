@@ -110,6 +110,15 @@
 
 / {
   behaviors {
+    as: auto_shift {
+      compatible = "zmk,behavior-hold-tap";
+      label = "AUTO_SHIFT";
+      #binding-cells = <2>;
+      tapping_term_ms = <135>;
+      quick_tap_ms = <0>;
+      flavor = "tap-preferred";
+      bindings = <&kp>, <&kp>;
+    };
     CU_AMP: ampersand {
       compatible = "zmk,behavior-mod-morph";
       label = "AMPERSAND";
@@ -129,13 +138,6 @@
       label = "CIRCUMFLEX";
       #binding-cells = <0>;
       bindings = <&MA_CIRC_DE>, <&kp GRAVE>;
-      mods = <(MOD_LSFT|MOD_RSFT)>;
-    };
-    CU_COMMA: comma_semicolon {
-      compatible = "zmk,behavior-mod-morph";
-      label = "COMMA_SEMICOLON";
-      #binding-cells = <0>;
-      bindings = <&kp COMMA>, <&kp LS(COMMA)>;
       mods = <(MOD_LSFT|MOD_RSFT)>;
     };
     CU_C_BRCK: close_bracket {
@@ -192,6 +194,13 @@
       label = "EQUAL";
       #binding-cells = <0>;
       bindings = <&kp LS(NUMBER_0)>, <&kp LS(NUMBER_0)>;
+      mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+    CU_EURO: pipe {
+      compatible = "zmk,behavior-mod-morph";
+      label = "EURO";
+      #binding-cells = <0>;
+      bindings = <&kp LC(LA(E))>, <&kp LC(LA(E))>;
       mods = <(MOD_LSFT|MOD_RSFT)>;
     };
     CU_EXCLAM: exclamation_mark {
@@ -434,5 +443,48 @@
     };
   };
 };
+
+// Autoshift
+
+#define AS(keycode) &as LS(keycode) keycode
+
+// Symbols
+#define AS_CIRC &as &MA_CIRC_DE GRAVE
+#define AS_DOT &as DOT &key_repeat
+#define AS_KP_DOT_COMMA &as COMMA DOT
+#define AS_NAMES &as LS(&CU_NAMES) &CU_NAMES
+#define AS_PLUS_EQ &as LS(NUMBER_0) KP_PLUS
+#define AS_SLASH &as KP_SLASH LC(LA(MINUS))
+
+#define AS_AMP &CU_AMP
+#define AS_AE AS(SINGLE_QUOTE)
+#define AS_AT &CU_AT
+#define AS_C_BRCK &CU_C_BRCK
+#define AS_C_CURL &CU_C_CURL
+#define AS_C_PAREN &CU_C_PAREN
+#define AS_DEG &CU_DEG
+#define AS_DOLLAR &CU_DOLLAR
+#define AS_DQUOT &CU_DQUOT
+#define AS_EQUAL &CU_EQUAL
+#define AS_EURO &CU_EURO
+#define AS_EXCLAM &CU_EXCLAM
+#define AS_GRAVE AS(EQUAL)
+#define AS_GT &CU_GT
+#define AS_HASH &CU_HASH
+#define AS_LT &CU_LT
+#define AS_LT &CU_LT
+#define AS_OE AS(SEMICOLON)
+#define AS_O_BRCK &CU_O_BRCK
+#define AS_O_CURL &CU_O_CURL
+#define AS_O_PAREN &CU_O_PAREN
+#define AS_PARA &CU_PARA
+#define AS_PERC &CU_PERC
+#define AS_PIPE &CU_PIPE
+#define AS_QUES &CU_QUES
+#define AS_SQUOT &CU_SQUOT
+#define AS_SS &CU_SS
+#define AS_TILDE &CU_TILDE
+#define AS_UE AS(LEFT_BRACKET)
+#define AS_USCORE &CU_USCORE
 
 // vim :set expandtab
