@@ -90,13 +90,13 @@
       CO_FLASH_L {
         timeout-ms = <50>;
         key-positions = <5 4 3>;
-        bindings = <&reset>;
+        bindings = <&bootloader>;
         layers = <3>;
       };
       CO_FLASH_R {
         timeout-ms = <50>;
         key-positions = <6 7 8>;
-        bindings = <&reset>;
+        bindings = <&bootloader>;
         layers = <3>;
       };
       CO_BT_CLR {
@@ -236,11 +236,11 @@
       bindings = <&kp NUHS>, <&kp NUHS>;
       mods = <(MOD_LSFT|MOD_RSFT)>;
     };
-    CU_KP_DOT_COMMA: kp_dot_comma {
+    CU_DOT_COMMA: dot_comma {
       compatible = "zmk,behavior-mod-morph";
-      label = "KEYPAD DOR COMMA";
+      label = "DOT COMMA";
       #binding-cells = <0>;
-      bindings = <&kp KP_DOT>, <&kp KP_COMMA>;
+      bindings = <&kp DOT>, <&kp COMMA>;
       mods = <(MOD_LSFT|MOD_RSFT)>;
     };
     CU_LT: less_than {
@@ -303,7 +303,7 @@
       compatible = "zmk,behavior-mod-morph";
       label = "PLUS_EQUAL";
       #binding-cells = <0>;
-      bindings = <&kp KP_PLUS>, <&kp LS(NUMBER_0)>;
+      bindings = <&kp RIGHT_BRACKET>, <&kp LS(NUMBER_0)>;
       mods = <(MOD_LSFT|MOD_RSFT)>;
     };
     CU_QUES: question {
@@ -317,7 +317,7 @@
       compatible = "zmk,behavior-mod-morph";
       label = "SLASH_BACKSLASH";
       #binding-cells = <0>;
-      bindings = <&kp KP_SLASH>, <&kp LC(LA(MINUS))>;
+      bindings = <&kp LS(NUMBER_7)>, <&kp LC(LA(MINUS))>;
       mods = <(MOD_LSFT|MOD_RSFT)>;
     };
     CU_SQUOT: single_quote {
