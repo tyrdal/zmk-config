@@ -28,10 +28,6 @@
     tapping-term-ms = <200>;
 };
 
-// TODO
-// reset, bootloader numlock combos
-
-// numlock combo
 // the keymap requires the os to be set to de_DE
 / {
   keymap {
