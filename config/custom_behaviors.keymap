@@ -90,13 +90,13 @@
       CO_FLASH_L {
         timeout-ms = <50>;
         key-positions = <5 4 3>;
-        bindings = <&reset>;
+        bindings = <&bootloader>;
         layers = <3>;
       };
       CO_FLASH_R {
         timeout-ms = <50>;
         key-positions = <6 7 8>;
-        bindings = <&reset>;
+        bindings = <&bootloader>;
         layers = <3>;
       };
       CO_BT_CLR {
