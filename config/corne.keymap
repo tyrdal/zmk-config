@@ -71,9 +71,9 @@
       //
       // | trans | trans | trans | -- | trans trans  | trans 
       bindings = <
-        &trans &kp PAGE_UP   &none         &kp UP                &none             &none    &kp KP_SLASH     &kp KP_NUMBER_7       &kp KP_NUMBER_8      &kp KP_NUMBER_9       &kp KP_MINUS    &trans
-        &trans &kp PAGE_DOWN &kp LEFT      &kp DOWN              &kp RIGHT         &none    &kp KP_MULTIPLY  &mt LCTRL KP_NUMBER_4 &mt LALT KP_NUMBER_5 &mt LSHFT KP_NUMBER_6 AS_PLUS_EQ     &trans
-        &trans &kp END       &sk LG(LC())  &sk LG(LC(LA(LSHFT))) &sk LC(LA(LSHFT)) &kp HOME AS_KP_DOT_COMMA  &kp KP_NUMBER_1       &kp KP_NUMBER_2      &kp KP_NUMBER_3       &kp KP_NUMBER_0 &trans
+        &trans &kp PAGE_UP   &none          &kp UP                &none             &none    &kp KP_SLASH     &kp KP_NUMBER_7       &kp KP_NUMBER_8      &kp KP_NUMBER_9       &kp KP_MINUS    &trans
+        &trans &kp PAGE_DOWN &kp LEFT       &kp DOWN              &kp RIGHT         &none    &kp KP_MULTIPLY  &mt LCTRL KP_NUMBER_4 &mt LALT KP_NUMBER_5 &mt LSHFT KP_NUMBER_6 AS_PLUS_EQ     &trans
+        &trans &kp END       &sk LG(LCTRL)  &sk LG(LC(LA(LSHFT))) &sk LC(LA(LSHFT)) &kp HOME AS_KP_DOT_COMMA  &kp KP_NUMBER_1       &kp KP_NUMBER_2      &kp KP_NUMBER_3       &kp KP_NUMBER_0 &trans
         &trans &trans &trans &trans &trans &trans
         >;
     };
