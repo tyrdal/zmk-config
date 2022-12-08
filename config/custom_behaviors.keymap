@@ -463,9 +463,9 @@
 // Symbols
 #define AS_CIRC &as &MA_CIRC_DE GRAVE
 #define AS_DOT &as DOT &key_repeat
-#define AS_KP_DOT_COMMA &as COMMA DOT
+#define AS_DOT_COMMA &as COMMA DOT
 #define AS_NAMES &as LS(&CU_NAMES) &CU_NAMES
-#define AS_PLUS_EQ &as LS(NUMBER_0) KP_PLUS
+#define AS_PLUS_EQ &as LS(NUMBER_0) RIGHT_BRACKET
 #define AS_SLASH &as KP_SLASH LC(LA(MINUS))
 
 #define AS_AMP &CU_AMP
